@@ -44,7 +44,10 @@ namespace RabbitMQConsumerTwo
                                  consumer: consumer);
 
             Thread.Sleep(1000 * messageCount);
-            Console.WriteLine(" Connection closed, no more messages.");
+            Console.WriteLine("Closing Connection..., no more messages.");
+            rabbitMqChannel.Close();
+            rabbitMqConnection.Close();
+            Console.WriteLine("Connection Closed");
             Console.ReadLine();
         }
     }
